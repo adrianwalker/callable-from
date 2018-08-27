@@ -8,6 +8,13 @@ import org.junit.Test;
 public final class CallableFromTest implements TestCaller {
 
   @Test
+  public void testCallableFromTestCaller() {
+
+    CallableCaller cc = new CallableCaller(new Callable());
+    cc.doStuff();
+  }
+
+  @Test
   public void testCallableFromError() {
 
     ErrorCaller er = new ErrorCaller(new CallableCaller(new Callable()));
@@ -29,13 +36,6 @@ public final class CallableFromTest implements TestCaller {
     }
   }
 
-  @Test
-  public void testCallableFromTestCaller() {
-
-    CallableCaller cc = new CallableCaller(new Callable());
-    cc.doStuff();
-  }
-  
   @Test
   public void testNotCallableFromSubclass() {
 
